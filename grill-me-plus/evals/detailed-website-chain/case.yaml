@@ -1,0 +1,4 @@
+schema_version: "1.1"
+name: detailed-website-chain
+expected_outcome: |
+  Recognizes a product-to-build (chained) request, does not re-ask facts the user already gave (users, free, timeline, non-technical), covers AI-specific questions, and keeps technical details for a non-technical user bundled rather than asked one by one.

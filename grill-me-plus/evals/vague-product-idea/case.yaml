@@ -1,0 +1,4 @@
+schema_version: "1.1"
+name: vague-product-idea
+expected_outcome: |
+  Opens the first questioning round: states the mode, restates understanding briefly, shows a progress line, asks a batch of structured questions with A-D options and a starred recommendation, uses fill-in questions where only the user knows the answer, and writes no code or final plan yet.

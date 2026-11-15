@@ -1,0 +1,4 @@
+schema_version: "1.1"
+name: final-output-after-rounds
+expected_outcome: |
+  Stops questioning and produces the final deliverables for a chained product+build session: a product brief, a self-contained development spec a fresh AI session could implement from, and an open-items table listing assumptions such as the unknown model choice, without re-listing every decision in a separate ledger.

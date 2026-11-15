@@ -85,11 +85,32 @@ npx skills add https://github.com/yezhu-aipm/grill-me-plus --skill grill-me-plus
 | 开发规格 | 开发模式、串联模式 | 交给新的 AI 会话直接开发，不需要回看对话 |
 | 待决事项 | 所有模式 | 列出还没定的假设、风险和需要外部确认的事项 |
 
+## 测试
+
+用 Anthropic 官方的 skill-creator 做过两轮测试，测试用例在 [`grill-me-plus/evals/`](grill-me-plus/evals/)。每个用例包含用户输入（`prompt.md`）、期望结果（`case.yaml`）和逐条检查项（`graders/`）。
+
+| 用例 | 测什么 |
+|---|---|
+| `vague-product-idea` | 模糊想法：第一轮的格式、题型，以及有没有识别出风险 |
+| `detailed-website-chain` | 信息详细的建站需求：会不会重复提问、技术题有没有合并 |
+| `biased-overscoped-plan` | 带偏见、范围过大的计划：客观性、模式判断 |
+| `final-output-after-rounds` | 问完后输出：简报、规格、待决事项是否完整，有没有擅自加功能 |
+
+**迭代记录**
+
+| 轮次 | 对比 | 通过率 | 发现并修复的问题 |
+|---|---|---|---|
+| 第 1 轮 | v2 vs 不装 skill | 100% vs 61% | 缩量规则太容易触发、开场信息没计入进度、模式判断偏向串联、最终产出擅自加功能、篇幅偏长 |
+| 第 2 轮 | v3 vs v2 | 97% vs 92% | 上面 5 个问题都已修复；第一轮从 3 题增加到 6～7 题，最终产出不再擅自加功能 |
+
+说明：每个版本每个用例只跑了一次，检查项中有一部分是格式要求，所以通过率只作为参考。
+
 ## 文件结构
 
 ```
 grill-me-plus/
-└── SKILL.md    # skill 本体
+├── SKILL.md    # skill 本体
+└── evals/      # 测试用例（可以用 claude plugin eval 运行）
 README.md
 LICENSE
 ```
