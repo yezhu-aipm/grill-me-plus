@@ -94,10 +94,6 @@ README.md
 LICENSE
 ```
 
-## 致谢
-
-核心思路（沿着决策树逐个拷问、每题给推荐答案）来自 Matt Pocock 的 [grill-me](https://github.com/mattpocock/skills)（MIT License）。按轮次提问参考了他的 grilling；停止条件和决策台账参考了社区版本 [grp06/useful-codex-skills](https://github.com/grp06/useful-codex-skills)。
-
 ## License
 
 MIT
